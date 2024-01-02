@@ -11,12 +11,18 @@ const server = http.createServer((req, res) => {
       const obj = JSON.parse(chunks)
       const value1 = obj.num1;
       const value2 = obj.num2;
+ if(value1<=0 || value2<0){
+        res.writeHead(404 ,{"Content-type":"text/plain"});
+        res.end("The operation cannot be performed");
 
-      // Write code here to calculate power of a number
+      }else{
+        res.writeHead(200 ,{"Content-Tpye": "text/plain"});
+        res.end(Math.pow(value1, value2));
+      }
       
     });
     }
-});
+    });
 
 module.exports = server;
       
