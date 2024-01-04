@@ -16,10 +16,12 @@ const server = http.createServer((req, res) => {
         res.end("The operation cannot be performed");
 
       }else{
-        res.writeHead(200 ,{"Content-Tpye": "text/plain"});
-        res.end(Math.pow(value1, value2));
-      }
-      
+        // res.writeHead(200 ,{"Content-Tpye": "text/plain"});
+        // res.end(Math.pow(value1, value2));
+     const result = Math.pow(value1, value2);
+          res.writeHead(200, { "Content-Type": "text/plain" });
+          res.end(`The result is ${result}`);
+      }      
     });
     }
     });
